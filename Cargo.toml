@@ -1,0 +1,19 @@
+[package]
+name = "lowlight-dn"
+version = "0.2.0"
+edition = "2021"
+description = "GPU low-light video denoiser (Temporal NR + Spatial NR) built on Rust + wgpu"
+
+[dependencies]
+eframe = { version = "0.27", default-features = false, features = ["glow", "default_fonts"] }
+wgpu = "0.19"
+pollster = "0.3"
+bytemuck = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.14"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 4
+strip = true
